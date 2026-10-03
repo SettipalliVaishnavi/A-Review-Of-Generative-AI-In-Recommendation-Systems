@@ -1,0 +1,222 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<style>
+    /* Home Page Specific Styles */
+    .home-hero {
+        position: relative;
+        text-align: center;
+        padding: 4rem 2rem;
+        color: #ffffff;
+        min-height: 80vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .home-hero h1 {
+        font-size: 3.8rem;
+        font-weight: 700;
+        margin-bottom: 1.5rem;
+        max-width: 1200px;
+        letter-spacing: -0.02em;
+    }
+
+    .home-hero p {
+        font-size: 1.6rem;
+        max-width: 900px;
+        opacity: 0.95;
+        margin-bottom: 3rem;
+    }
+
+    .cta-buttons {
+        display: flex;
+        gap: 1.5rem;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .btn-primary, .btn-secondary {
+        padding: 1rem 2.5rem;
+        border-radius: 12px;
+        font-size: 1.1rem;
+        font-weight: 600;
+        text-decoration: none;
+        transition: all 0.3s ease;
+    }
+
+    .btn-primary {
+        background: #6d28d9;
+        color: #ffffff;
+    }
+
+    .btn-primary:hover {
+        background: #1e3a8a;
+        transform: translateY(-4px);
+        box-shadow: 0 8px 20px rgba(109, 40, 217, 0.4);
+    }
+
+    .btn-secondary {
+        background: rgba(255, 255, 255, 0.2);
+        color: #ffffff;
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .btn-secondary:hover {
+        background: rgba(255, 255, 255, 0.3);
+        transform: translateY(-4px);
+    }
+
+    .sections {
+        padding: 4rem 0;
+        background: #f9fafb;
+        margin-top: -10rem; /* Overlap with hero for smooth transition */
+        border-radius: 30px 30px 0 0;
+        position: relative;
+        z-index: 2;
+    }
+
+    .section-title {
+        text-align: center;
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: #1e3a8a;
+        margin-bottom: 3rem;
+    }
+
+    .cards-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: 2rem;
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 0 2rem;
+    }
+
+    .card {
+        background: #ffffff;
+        padding: 2.5rem;
+        border-radius: 16px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        transition: transform 0.4s ease, box-shadow 0.4s ease;
+        text-align: center;
+    }
+
+    .card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    }
+
+    .card h3 {
+        font-size: 1.8rem;
+        color: #1e3a8a;
+        margin-bottom: 1rem;
+    }
+
+    .card img {
+        max-width: 100%;
+        border-radius: 12px;
+        margin: 1.5rem 0;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .benefits-list {
+        max-width: 1000px;
+        margin: 0 auto;
+        padding: 0 2rem;
+    }
+
+    .benefits-list ul {
+        list-style: none;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+    }
+
+    .benefits-list li {
+        background: #ffffff;
+        padding: 2rem;
+        border-radius: 16px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+    }
+
+    .benefits-list li::before {
+        content: "✓";
+        font-size: 2rem;
+        color: #6d28d9;
+        font-weight: bold;
+    }
+
+    @media (max-width: 768px) {
+        .home-hero h1 {
+            font-size: 2.8rem;
+        }
+        .home-hero p {
+            font-size: 1.4rem;
+        }
+        .cta-buttons {
+            flex-direction: column;
+            align-items: center;
+        }
+        .section-title {
+            font-size: 2.2rem;
+        }
+    }
+</style>
+
+<div class="home-hero">
+    <h1>A Review of Generative AI in Recommendation Systems</h1>
+    <p>Leveraging advanced generative models like GANs and VAEs to create synthetic interactions, solve cold-start problems, enhance diversity, and significantly improve recommendation accuracy and personalization.</p>
+    <div class="cta-buttons">
+        <a href="#overview" class="btn-primary">Explore the Project</a>
+        <a href="{% url 'UserLoginCheck' %}" class="btn-secondary">Login to Demo</a>
+    </div>
+</div>
+
+<div class="sections">
+    <h2 class="section-title" id="overview">Project Overview</h2>
+    <div class="cards-grid">
+        <div class="card">
+            <h3>Generative Adversarial Networks (GANs)</h3>
+            <p>GANs generate realistic synthetic user-item interactions to augment sparse datasets.</p>
+
+            <img src="{% static 'gans_viz.png' %}" alt="GANs Visualization" style="width: 100%; border-radius: 12px; margin: 1.5rem 0;">
+
+        </div>
+        <div class="card">
+            <h3>Variational Autoencoders (VAEs)</h3>
+            <p>VAEs model latent user preferences and generate diverse recommendations.</p>
+
+            <img src="{% static 'vaes_viz.png' %}" alt="VAEs Visualization" style="width: 100%; border-radius: 12px; margin: 1.5rem 0;">
+
+        </div>
+        <div class="card">
+            <h3>Synthetic Data in RecSys</h3>
+            <p>AI-generated data helps overcome data scarcity and privacy issues.</p>
+
+            <div style="background: #f1f5f9; padding: 2rem; border-radius: 12px; margin: 1.5rem 0; border-left: 5px solid #6d28d9;">
+                <p style="font-style: italic; color: #4b5563;">"Synthetic data generation allows models to learn from augmented datasets, significantly reducing bias and improving the long-tail recommendation performance."</p>
+            </div>
+
+        </div>
+    </div>
+
+    <h2 class="section-title">Key Benefits</h2>
+    <div class="benefits-list">
+        <ul>
+            <li>Handles cold-start problem for new users/items effectively</li>
+            <li>Improves recommendation diversity and reduces filter bubbles</li>
+            <li>Enhances accuracy with synthetic high-quality interactions</li>
+            <li>Preserves user privacy through generated data</li>
+            <li>Scales to large systems with data augmentation</li>
+            <li>Enables better personalization using latent representations</li>
+        </ul>
+    </div>
+</div>
+{% endblock %}

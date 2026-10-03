@@ -1,0 +1,36 @@
+# Python
+__pycache__/
+*.py[cod]
+
+# Virtual environment
+env
+venv/
+.venv/
+
+# Environment variables and secrets
+.env
+.env.*
+!.env.example
+
+# Django database
+db.sqlite3
+db.sqlite3-journal
+
+# Uploaded/user files
+media/
+
+# VS Code
+.vscode/
+
+# Other IDE files
+.idea/
+
+# Logs
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Old/duplicate project copy
+RecommendationSystems/
