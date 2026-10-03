@@ -208,6 +208,23 @@ Sensitive information such as the Gemini API key is stored in an environment var
 - Improve recommendation evaluation metrics.
 - Deploy the application to a cloud platform.
 
+  ## 📸 Project Screenshots
+
+### 🏠 Home Page
+![Home Page](01_home.png)
+
+### 📝 User Registration
+![User Registration](02_registration.png)
+
+### 🔐 User Login
+![User Login](03_login.png)
+
+### 🤖 AI Recommendation
+![AI Recommendation](04_ai_recommendation.png)
+
+### 🧠 Gemini AI Result
+![Gemini AI Result](05_gemini_result.png)
+
 ## 👩‍💻 Author
 
 **Settipalli Vaishnavi**
